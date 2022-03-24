@@ -55,7 +55,7 @@ public class Hotel {
         boeking.setKamer(beschikbareKamer);
 
         alleBoekingen.add(boeking);
-
+        System.out.println("Kamer Geboekt");
         return boeking;
     }
 

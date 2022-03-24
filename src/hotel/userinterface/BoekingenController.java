@@ -36,6 +36,7 @@ public class BoekingenController {
         vertrekDatePicker.setValue(null);
         aankomstDatePicker.setValue(null);
         kamertypeComboBox.setValue(null);
+
         Hotel hotel = Hotel.getHotel();
         ObservableList<KamerType> list = FXCollections.observableArrayList(hotel.getKamerTypen());
         kamertypeComboBox.setItems(list);
@@ -58,17 +59,23 @@ public class BoekingenController {
                 naamTextField.setText("Voer aub uw naam in!");
             } else if (adresTextField.getText() == "") {
                 adresTextField.setText("Voer aub uw adres in!");
-            }
-            if (aankomstDatePicker.getValue().isBefore(LocalDate.now()) || vertrekDatePicker.getValue().isBefore(LocalDate.now()) || aankomstDatePicker.getValue() == null || vertrekDatePicker.getValue() == null) {
+            } else if (aankomstDatePicker.getValue() == null ||
+                    vertrekDatePicker.getValue() == null) {
+                infoLabel.setText("Kies een datum aub..");
+            } else if (aankomstDatePicker.getValue().isBefore(LocalDate.now()) ||
+                    vertrekDatePicker.getValue().isBefore(LocalDate.now())) {
                 infoLabel.setText("Kies een periode die in de toekomst ligt aub.");
                 aankomstDatePicker.setValue(null);
                 vertrekDatePicker.setValue(null);
             } else if (kamertypeComboBox.getValue() == null) {
                 infoLabel.setText("Kies aub gewenst kamertype. ");
-            } else if (aankomstDatePicker.getValue().isAfter(LocalDate.now()) && vertrekDatePicker.getValue().isAfter(LocalDate.now())) {
+            } else if (aankomstDatePicker.getValue().isAfter(LocalDate.now()) &&
+                    vertrekDatePicker.getValue().isAfter(LocalDate.now())) {
                 try {
                     Hotel hotel = Hotel.getHotel();
-                    hotel.voegBoekingToe(aankomstDatePicker.getValue(), vertrekDatePicker.getValue(), naamTextField.getText(), adresTextField.getText(), (KamerType) kamertypeComboBox.getValue());
+                    hotel.voegBoekingToe(aankomstDatePicker.getValue(), vertrekDatePicker.getValue(),
+                            naamTextField.getText(), adresTextField.getText(),
+                            (KamerType) kamertypeComboBox.getSelectionModel().getSelectedItem());
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -77,10 +84,11 @@ public class BoekingenController {
             System.out.println(e);
         }
     }
-        public void resetFields() throws Exception {
-            initialize();
-        }
+
+    public void resetFields() throws Exception {
+        initialize();
     }
+}
 
 
 

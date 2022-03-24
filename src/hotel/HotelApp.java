@@ -21,10 +21,11 @@ public class HotelApp extends Application {
 
 		List<Kamer> kamers = new ArrayList<>();
 		kamers.add(new Kamer(1, kt2));
-		kamers.add(new Kamer(2, kt1));
+		kamers.add(new Kamer(2, kt2));
 		kamers.add(new Kamer(3, kt1));
-		kamers.add(new Kamer(4, kt2));
-		kamers.add(new Kamer(1, kt3));
+		kamers.add(new Kamer(4, kt1));
+		kamers.add(new Kamer(5, kt2));
+		kamers.add(new Kamer(6, kt3));
 
 		Hotel nieuwHotel = new Hotel("Avondrust", kamers);
 		nieuwHotel.voegBoekingToe(LocalDate.now(), LocalDate.now().plusWeeks(2), "Mark Rutte", "Torentje 1", kt2);
