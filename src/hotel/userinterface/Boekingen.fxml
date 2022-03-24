@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel.userinterface.BoekingenController">
+   <children>
+      <Text fx:id="infoLabel" layoutX="52.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Voer uw gegevens in!" />
+      <Button fx:id="resetButton" layoutX="251.0" layoutY="236.0" mnemonicParsing="false" onAction="#resetFields" text="Reset">
+         <padding>
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+         </padding>
+      </Button>
+      <Button fx:id="boekKnop" layoutX="382.0" layoutY="236.0" mnemonicParsing="false" onAction="#boekButtonPressed" text="Boek">
+         <padding>
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+         </padding>
+      </Button>
+      <TextField fx:id="naamTextField" layoutX="166.0" layoutY="77.0" onMouseClicked="#naamTextBoxClick" prefHeight="25.0" prefWidth="281.0" />
+      <TextField fx:id="adresTextField" layoutX="166.0" layoutY="103.0" onAction="#adressTextBoxClick" onMouseClicked="#adressTextBoxClick" prefHeight="25.0" prefWidth="281.0" />
+      <DatePicker fx:id="aankomstDatePicker" layoutX="166.0" layoutY="132.0" prefHeight="25.0" prefWidth="281.0" promptText="06-03-2020">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </DatePicker>
+      <DatePicker fx:id="vertrekDatePicker" layoutX="166.0" layoutY="164.0" prefHeight="25.0" prefWidth="281.0" promptText="07-03-2020">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </DatePicker>
+      <ComboBox fx:id="kamertypeComboBox" layoutX="166.0" layoutY="199.0" prefHeight="25.0" prefWidth="281.0" />
+      <Label layoutX="51.0" layoutY="81.0" text="Naam:" />
+      <Label layoutX="52.0" layoutY="107.0" text="Adres:" />
+      <Label layoutX="49.0" layoutY="136.0" text="Aankomstdatum:" />
+      <Label layoutX="48.0" layoutY="168.0" text="Vertrekdatum:" />
+      <Label layoutX="51.0" layoutY="198.0" text="Kamertype:" />
+   </children>
+</AnchorPane>
